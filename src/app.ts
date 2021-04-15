@@ -1,14 +1,18 @@
-//****************Ejemplo 3****************
-var cad1 : string = "this is a sample string";
-var cad2 : string = "a";
-var cad3 : string = "bangnab";
+//****************Ejemplo 4****************
+//var num : number[] = [3, 6, -2, -5, 7, 3];
+//var num : number[] = [-1, -2];
+var num : number[] = [1, 0, 1, 0, 1000];
 
-function palindrome(str: string) 
+var mayor : number = 0;
+function producto(posicion:number): number 
 {
-    const strReversed = str.split("").reverse().join("")
-    return strReversed === str ? "true" : "false"
+  if(posicion >= num.length - 1)
+      return mayor;
+  else
+  {
+      if((num[posicion] * num[posicion + 1]) > mayor)
+          mayor = num[posicion] * num[posicion + 1];
+      return producto(posicion + 1); 
+  }
 }
-
-console.log(palindrome(cad1));
-console.log(palindrome(cad2));
-console.log(palindrome(cad3));
+console.log(producto(0));
