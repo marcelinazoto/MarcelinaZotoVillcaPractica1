@@ -1,12 +1,14 @@
-//****************Ejemplo 1****************
-var cad1: string = 'this is a sample string';
-var cad2: string = 'a';
-var cad3: string = 'bang';
+//****************Ejemplo 3****************
+var cad1 : string = "this is a sample string";
+var cad2 : string = "a";
+var cad3 : string = "bangnab";
 
-function cadenaIvertida(texto: string) 
+function palindrome(str: string) 
 {
-  return texto.split('').reverse().join('');
+    const strReversed = str.split("").reverse().join("")
+    return strReversed === str ? "true" : "false"
 }
-console.log(cadenaIvertida(cad1));
-console.log(cadenaIvertida(cad2));
-console.log(cadenaIvertida(cad3));
+
+console.log(palindrome(cad1));
+console.log(palindrome(cad2));
+console.log(palindrome(cad3));
