@@ -1,18 +1,46 @@
-//****************Ejemplo 4****************
-//var num : number[] = [3, 6, -2, -5, 7, 3];
-//var num : number[] = [-1, -2];
-var num : number[] = [1, 0, 1, 0, 1000];
+//****************Ejemplo 5****************
+//var estatues : number[] = [6, 2, 3, 8];
+//var estatues : number[] = [5, 4, 6];
+var estatuas : number[] = [0, 3];
 
-var mayor : number = 0;
-function producto(posicion:number): number 
-{
-  if(posicion >= num.length - 1)
-      return mayor;
-  else
-  {
-      if((num[posicion] * num[posicion + 1]) > mayor)
-          mayor = num[posicion] * num[posicion + 1];
-      return producto(posicion + 1); 
-  }
+var menor:number = 0;
+var mayor:number = 0;
+function minimo():number {
+    for(let i : number = 0; i < estatuas.length; i++) 
+    {
+        if(i == 0) 
+        {
+            mayor = estatuas[i];
+            menor = estatuas[i];
+        }
+        else 
+        {
+            if(estatuas[i] > mayor) 
+            {
+                mayor = estatuas[i];
+            }
+            if(estatuas[i] < menor) 
+            {
+                menor = estatuas[i];
+            }
+        }    
+    }
+    return MASstatuas();
 }
-console.log(producto(0));
+function MASstatuas() :number{
+  let falt:number = 0;
+  let result:number = 0;
+  for(let i:number = menor ; i <= mayor ; i++){
+      for(let j:number = 0; j < estatuas.length ; j++) {
+          if(i != estatuas[j]) {
+              falt++;
+          }
+          if(falt === estatuas.length){
+              result++;
+          }
+      }
+      falt = 0;
+  }
+  return result;
+} 
+console.log(minimo());
