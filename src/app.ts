@@ -1,33 +1,25 @@
-//****************Ejemplo 6****************
-/*var habitaciones: number [][] = [
-  [0, 1, 1, 2],
-  [0, 5, 0, 0],
-  [2, 0, 3, 3]
-];*/
-var habitaciones: number [][] = [
-    [1, 1, 1],
-    [2, 2, 2],
-    [3, 3, 3]
-  ];
-var total: number = 0;
+//****************Ejemplo 8****************
+var c = 9;
+var j = 2;
+var numerosPrimos = [];
+for (; j < c; j++) {
 
-function costoTotal(): number
-{
-    for(let i:number = 0; i < habitaciones[0].length; i++) 
-    {
-        for (let j: number = 0; j < habitaciones.length; j++) 
-        {
-            if (habitaciones[j][i] == 0) 
-            {
-                break;
-            }
-            else 
-            {
-              total += habitaciones[j][i];
-            }
-        }
-    }
-    return total;
+  if (primo(j)) {
+    numerosPrimos.push(j);
+  }
+  
 }
 
-console.log(costoTotal());
+console.log(numerosPrimos);
+
+function primo(n: number): Boolean
+{
+    for(let i : number = 2; i < n; i++)
+    {
+        if(n % i === 0)
+        {
+            return false;
+        }
+    }
+    return true;
+}
