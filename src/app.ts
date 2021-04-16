@@ -1,46 +1,33 @@
-//****************Ejemplo 5****************
-//var estatues : number[] = [6, 2, 3, 8];
-//var estatues : number[] = [5, 4, 6];
-var estatuas : number[] = [0, 3];
+//****************Ejemplo 6****************
+/*var habitaciones: number [][] = [
+  [0, 1, 1, 2],
+  [0, 5, 0, 0],
+  [2, 0, 3, 3]
+];*/
+var habitaciones: number [][] = [
+    [1, 1, 1],
+    [2, 2, 2],
+    [3, 3, 3]
+  ];
+var total: number = 0;
 
-var menor:number = 0;
-var mayor:number = 0;
-function minimo():number {
-    for(let i : number = 0; i < estatuas.length; i++) 
+function costoTotal(): number
+{
+    for(let i:number = 0; i < habitaciones[0].length; i++) 
     {
-        if(i == 0) 
+        for (let j: number = 0; j < habitaciones.length; j++) 
         {
-            mayor = estatuas[i];
-            menor = estatuas[i];
+            if (habitaciones[j][i] == 0) 
+            {
+                break;
+            }
+            else 
+            {
+              total += habitaciones[j][i];
+            }
         }
-        else 
-        {
-            if(estatuas[i] > mayor) 
-            {
-                mayor = estatuas[i];
-            }
-            if(estatuas[i] < menor) 
-            {
-                menor = estatuas[i];
-            }
-        }    
     }
-    return MASstatuas();
+    return total;
 }
-function MASstatuas() :number{
-  let falt:number = 0;
-  let result:number = 0;
-  for(let i:number = menor ; i <= mayor ; i++){
-      for(let j:number = 0; j < estatuas.length ; j++) {
-          if(i != estatuas[j]) {
-              falt++;
-          }
-          if(falt === estatuas.length){
-              result++;
-          }
-      }
-      falt = 0;
-  }
-  return result;
-} 
-console.log(minimo());
+
+console.log(costoTotal());
